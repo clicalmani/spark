@@ -1,0 +1,22 @@
+{
+    "name": "tonka/spark",
+    "description": "Tonka Spark is a PHP library that provides Ziggy-like functionality for Laravel applications, allowing you to generate URLs to named routes in your JavaScript code.",
+    "type": "library",
+    "require": {
+        "php": ">=8.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tonka\\Spark\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "clicalmani",
+            "email": "clicalmani@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}
