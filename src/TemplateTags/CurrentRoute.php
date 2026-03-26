@@ -3,7 +3,6 @@ namespace Tonka\Spark\TemplateTags;
 
 use Clicalmani\Foundation\Resources\TemplateTag;
 use Clicalmani\Routing\Memory;
-use Clicalmani\Routing\Segment;
 
 class CurrentRoute extends TemplateTag
 {
@@ -19,15 +18,22 @@ class CurrentRoute extends TemplateTag
      * 
      * @return string
      */
-    public function render() : string
+    public function render(array $matches) : string
     {
         $route = null;
 
         if ($current = Memory::currentRoute() AND $current->name) {
+            $params = [];
+
+            /** @var \Clicalmani\Routing\Segment */
+            foreach ($current->getParameters() as $segment) {
+                $params[substr($segment->name, 1)] = $segment->value;
+            }
+
             $route = [
                 'name' => $current->name,
                 'uri' => $current->uri,
-                'parameters' => array_map(fn(Segment $segment) => $segment->name, $current->getParameters()),
+                'parameters' => $params,
                 'methods' => [$current->verb]
             ];
         }
