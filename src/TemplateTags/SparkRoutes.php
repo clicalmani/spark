@@ -33,7 +33,7 @@ class SparkRoutes extends TemplateTag
                 // No configuration = Maximum security (nothing is transmitted)
                 return json_encode([
                     'url' => rtrim(app()->getUrl(), '/'),
-                    'port' => parse_url(client_uri(), PHP_URL_PORT) ?? null,
+                    'port' => parse_url(client_url(), PHP_URL_PORT) ?? null,
                     'defaults' => [],
                     'routes' => []
                 ]);
@@ -99,7 +99,7 @@ class SparkRoutes extends TemplateTag
 
         return json_encode([
             'url' => rtrim(app()->getUrl(), '/'),
-            'port' => parse_url(client_uri(), PHP_URL_PORT) ?? null,
+            'port' => parse_url(client_url(), PHP_URL_PORT) ?? null,
             'defaults' => [],
             'routes' => $finalRoutes
         ]);
