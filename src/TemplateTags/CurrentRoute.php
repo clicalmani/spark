@@ -32,7 +32,7 @@ class CurrentRoute extends TemplateTag
 
             $route = [
                 'name' => $current->name,
-                'uri' => $current->uri,
+                'uri' => '/' . $current->uri,
                 'parameters' => $params,
                 'methods' => [$current->verb]
             ];

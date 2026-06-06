@@ -10,7 +10,7 @@ class SparkRoutes extends TemplateTag
 
     public function render(array $matches) : string
     {
-        $config = config('spark');
+        $config    = config('spark');
         $container = \Clicalmani\Foundation\Acme\Container::getInstance();
         
         $rules = [];
@@ -99,7 +99,7 @@ class SparkRoutes extends TemplateTag
 
         return json_encode([
             'url' => rtrim(app()->getUrl(), '/'),
-            'port' => parse_url(client_url(), PHP_URL_PORT) ?? null,
+            'port' => parse_url(client_url(), PHP_URL_PORT) ?? 80,
             'defaults' => [],
             'routes' => $finalRoutes
         ]);
